@@ -17,7 +17,7 @@ This is currently the only ODM/ORM library that exists for Elasticsearch on Node
 If you currently have [npm elasticsearch](https://www.npmjs.com/package/elasticsearch) installed, you can remove it and access it from [client](client---elasticsearch) in this library if you still need it.
 
 ```sh
-$ npm install elasticsearch-odm
+$ npm install bloublou2014/elasticsearch-odm
 ```
 
 ### Features
