@@ -17,7 +17,7 @@ This is currently the only ODM/ORM library that exists for Elasticsearch on Node
 If you currently have [npm elasticsearch](https://www.npmjs.com/package/elasticsearch) installed, you can remove it and access it from [client](client---elasticsearch) in this library if you still need it.
 
 ```sh
-$ npm install elasticsearch-odm-2
+$ npm install varavut/elasticsearch-odm#es-2.x
 ```
 
 ### Features
@@ -96,6 +96,8 @@ var Car = esodm.model('Car', carSchema);
   - [`not`](#mot)
   - [`missing`](#missing)
   - [`exists`](#exists)
+  - [`range`](#range)
+  - [`notInRange`](#notInRange)
 - [Schemas](#schemas)
   - [`Hooks and Middleware`](#hooks-and-middleware)
   - [`Static and Instance Methods`](#static-and-instance-methods)
@@ -470,7 +472,70 @@ Example:
 .exists(['description', 'name'])
 .then(...)
 ```
+#####  range
+Type: `Object`
 
+Implementation of [Range Query](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-range-query.html)
+
+*You can query nested fields using dot notation.*
+
+Example:
+
+```js
+// Query Options.
+{
+  must: {
+    range: {
+      speed: {
+        gte: 2,
+        lte: 5
+      }
+    }
+  }
+}
+
+// Chained Query.
+.find()
+.range({
+  speed: {
+    gte: 2,
+    lte: 5
+  }
+})
+.then(...)
+```
+#####  notInRange
+Type: `Object`
+
+The same as Like [`range`](#range), but matches documents where value is not in specific range.
+
+*You can query nested fields using dot notation.*
+
+Example:
+
+```js
+// Query Options.
+{
+  must_not: {
+    range: {
+      speed: {
+        gte: 2,
+        lte: 5
+      }
+    }
+  }
+}
+
+// Chained Query.
+.find()
+.notInRange({
+  speed: {
+    gte: 2,
+    lte: 5
+  }
+})
+.then(...)
+```
 ### Schemas
 Models don't require schemas, but it's best to use them - especially if you'll be making search queries. Elasticsearch-odm will generate and update Elasticsearch with the proper mappings based off your schema definition.
 The schemas are similar to Mongoose, but several new field types have been added which Elasticsearch supports. These are; **float**, **double**, **long**, **short**, **byte**, **binary**, **geo_point**. Generally for numbers, only the Number type is needed (which converts to Elasticsearch integer). You can read more about Elasticsearch types [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-core-types.htm).
