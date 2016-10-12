@@ -507,7 +507,7 @@ Example:
 #####  notInRange
 Type: `Object`
 
-The same as Like [`range`](#range), but matches documents where value is not in specific range.
+The same as [`range`](#range), but matches documents where value is not in specific range.
 
 *You can query nested fields using dot notation.*
 
