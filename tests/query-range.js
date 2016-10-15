@@ -8,7 +8,7 @@ var requireNew = require('require-new'),
 
 var Car = app.model('Car')
 
-describe('Query-Promise-Range', function () {
+describe('Query-Range', function () {
   before(function (done) {
     this.timeout(10000)
     helper.connect(app)

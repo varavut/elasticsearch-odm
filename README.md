@@ -87,6 +87,7 @@ var Car = esodm.model('Car', carSchema);
   - [`.findOneAndRemove(Object/String match, Object queryOptions)`](#findoneandremoveobjectstring-match-object-queryoptions---object)
   - [`.makeInstance(Object data)`](#makeinstanceobject-data---document)
   - [`.toMapping()`](#tomapping)
+  - [`.findAndUpdate()`](#findAndUpdate)
 - [Query Options](#query-options)
   - [`page & per_page`](#page--per_page)
   - [`fields`](#fields)
@@ -309,6 +310,9 @@ Helper function. Takes a raw object and creates a document instance out of it. T
 
 ##### `.toMapping()`
 Returns a complete Elasticsearch mapping for this model based off it's schema. If no schema was used, it returns nothing. Used internally, but it's there if you'd like it.
+
+##### `.findAndUpdate(Object match, Object queryOptions, Object updateData)`
+Implementation of [updateByQuery](https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/api-reference.html#api-updatebyquery)
 
 ### Query Options
 The query options object includes several options that are normally included in mongoose chained queries, like sort, and paging (skip/limit), and also some advanced features from Elasticsearch.
