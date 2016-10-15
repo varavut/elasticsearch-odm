@@ -87,7 +87,7 @@ var Car = esodm.model('Car', carSchema);
   - [`.findOneAndRemove(Object/String match, Object queryOptions)`](#findoneandremoveobjectstring-match-object-queryoptions---object)
   - [`.makeInstance(Object data)`](#makeinstanceobject-data---document)
   - [`.toMapping()`](#tomapping)
-  - [`.findAndUpdate()`](#findAndUpdateobjectstring-match-object-queryoptions-object-updatedata)
+  - [`.findAndUpdate()`](#findandupdateobjectstring-match-object-queryoptions-object-updatedata)
 - [Query Options](#query-options)
   - [`page & per_page`](#page--per_page)
   - [`fields`](#fields)
