@@ -312,7 +312,9 @@ Helper function. Takes a raw object and creates a document instance out of it. T
 Returns a complete Elasticsearch mapping for this model based off it's schema. If no schema was used, it returns nothing. Used internally, but it's there if you'd like it.
 
 ##### `.findAndUpdate(Object/String match, Object queryOptions, Object updateData)`
-Implementation of [updateByQuery](https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/api-reference.html#api-updatebyquery) to use this function you need to set `script.engine.groovy.inline.update: on`.
+Implementation of [updateByQuery](https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/api-reference.html#api-updatebyquery).
+
+*to use this function you need to set `script.engine.groovy.inline.update: on`.*
 
 ### Query Options
 The query options object includes several options that are normally included in mongoose chained queries, like sort, and paging (skip/limit), and also some advanced features from Elasticsearch.
